@@ -1,5 +1,6 @@
 # 문자 단위 RNN으로 이름 분류하기
-## https://9bow.github.io/PyTorch-tutorials-kr-0.3.1/intermediate/char_rnn_classification_tutorial.html 이 자료를 바탕으로 공부하였다.
+## https://9bow.github.io/PyTorch-tutorials-kr-0.3.1/intermediate/char_rnn_classification_tutorial.html 
+위 자료를 바탕으로 공부하였다.
 
 # 바뀐부분
 ## <img src="https://user-images.githubusercontent.com/55969260/67189597-7842f000-f429-11e9-9898-65a812a16fd8.png">
@@ -17,4 +18,6 @@ CrossEntropyLoss()로 바꿨다. 그리고 optimizer 부분을 따로 함수로 
 이유는 아직 모르겠다. 
 
 # 아쉬운점
-## 
+일단 최적화 함수를 Adam 으로 바꾸면 loss 가 폭발하는 이유를 잘 모르겠다. 또한 이 프로그램은 전체 데이터셋을 train 과 test set으로 나누지 않고 
+랜덤으로 뽑아 학습과 평가를 진행해 오버피팅이 발생할 수도 있었을 거 같다. 또 분류해야 하는 레이블의 개수가 18개나 되는데 단순히 RNN 네트워크
+만으로 분류하기에 성능이 낮음을 확인할 수 있다.
