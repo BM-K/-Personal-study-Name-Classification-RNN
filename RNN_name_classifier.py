@@ -87,7 +87,6 @@ class RNN(nn.Module):
         hidden = self.i2h(combined)
         #hidden2 = self.h2h(combined)
         output = self.i2o(combined)
-        output = self.softmax(output)
         return output, hidden
 
     def initHidden(self):
@@ -130,7 +129,7 @@ print("-------------------------------------")
 
 import torch.optim as optim
 
-criterion = nn.NLLLoss()
+criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(rnn.parameters(), lr = 0.005)
 #learning_rate = 0.005
 
@@ -142,14 +141,11 @@ def train(category_tensor, line_tensor):
     # 이름 길이만큼
     for i in range(line_tensor.size()[0]):
         output, hidden = rnn(line_tensor[i], hidden)
-    #print('\n\n',output,'\n')
+
     optimizer.zero_grad()
     loss = criterion(output, category_tensor)
     loss.backward()
     optimizer.step()
-    # learning rate를 곱한 파라미터의 경사도를 파라미터 값에 더한다.
-    # for p in rnn.parameters():
-    #     p.data.add_(-learning_rate, p.grad.data)
     return output, loss.data
 
 import time
@@ -187,7 +183,7 @@ for iter in range(1, n_iters + 1):
         current_loss = 0
 
 confusion = torch.zeros(n_categories, n_categories)
-n_confusion = 10000
+n_confusion = 100000
 
 def evaluate(line_tensor):
     hidden = rnn.initHidden()
