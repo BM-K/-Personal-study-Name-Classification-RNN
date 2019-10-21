@@ -4,7 +4,7 @@
 
 # 바뀐부분
 ## <img src="https://user-images.githubusercontent.com/55969260/67189597-7842f000-f429-11e9-9898-65a812a16fd8.png">
-일단 accuracy를 측정하는 부분이 없어 만들어 보았다. 위 자료를 그대로 적용하였을 때 accuracy 는 54% 정도 나왔다. 정확도를 높이기 위해
+일단 accuracy를 측정하는 부분이 없어 만들었다. 위 자료를 그대로 적용하였을 때 accuracy 는 54% 정도 나왔다. 정확도를 높이기 위해
 몇 라인을 바꿔보았다. 일단 자료에선 softmax를 취하고 NLLLoss 함수에 값을 넣었는데 이를 없애고 loss function에 softmax 가 있는
 CrossEntropyLoss()로 바꿨다. 그리고 optimizer 부분을 따로 함수로 안 빼고 다음과 같이 짜여 있었다.
 
