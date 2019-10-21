@@ -1,4 +1,4 @@
-# 문자 단위 RNN으로 이름 분류하기
+# 문자 단위 RNN으로 이름 분류하기 (공부용)
 ## https://9bow.github.io/PyTorch-tutorials-kr-0.3.1/intermediate/char_rnn_classification_tutorial.html 
 위 자료를 바탕으로 공부하였다.
 
